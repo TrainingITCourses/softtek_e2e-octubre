@@ -65,6 +65,11 @@ cy.get('title'); // existencia implícita
 
 ### 0. Inicio (demo)
 
+```bash
+npm install cypress 
+npm install typescript --save-dev
+```
+
 - lanzar el SUT [AI code Academy / archetype angular spa](https://github.com/AIDDbot/ArchetypeAngularSPA)
 - `cypress open` para abrir el Test Runner.
 - Escoger e2e y chrome.
