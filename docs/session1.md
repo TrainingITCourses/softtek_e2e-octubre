@@ -43,7 +43,8 @@ describe('Mi página de destino', () => {
 Cypress proporciona un amplio conjunto de comandos que permiten interactuar con la aplicación que se está probando. Los comandos se ofrecen a partir de la variable global `cy` y son _encadenables_, lo que significa que pueden ser utilizados para realizar múltiples acciones en una sola línea. 
 
 ```ts
-cy.visit('https://example.cypress.io'); cy.get('button').click();
+cy.visit('https://example.cypress.io'); 
+cy.get('button').click();
 cy.get('input').type('¡Hola, Cypress!');
 cy.contains('Submit').should('be.visible');
 ```

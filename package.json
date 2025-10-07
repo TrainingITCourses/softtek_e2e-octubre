@@ -1,0 +1,31 @@
+{
+  "name": "softtek_e2e-octubre",
+  "version": "1.0.0",
+  "description": "Curso de introducción a Cypress para Softtek Edición de Octubre 25",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "cypress open",
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingITCourses/softtek_e2e-octubre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/TrainingITCourses/softtek_e2e-octubre/issues"
+  },
+  "homepage": "https://github.com/TrainingITCourses/softtek_e2e-octubre#readme",
+  "dependencies": {
+    "cypress": "^15.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
