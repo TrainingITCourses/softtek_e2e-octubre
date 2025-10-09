@@ -1,4 +1,4 @@
-# Introducción a Cypress
+# 1 Introducción a Cypress
 
 > Softtek 7 de Octubre 2025
 
@@ -71,7 +71,7 @@ npm install cypress
 npm install typescript --save-dev
 ```
 
-- lanzar el SUT [AI code Academy / archetype angular spa](https://github.com/AIDDbot/ArchetypeAngularSPA)
+- lanzar el SUT [angular spa / v20](https://github.com/AlbertoBasaloLabs/Angular)
 - `cypress open` para abrir el Test Runner.
 - Escoger e2e y chrome.
 - Crear una prueba de ejemplo.
@@ -89,7 +89,7 @@ Escribe un conjunto de pruebas end-to-end (E2E) utilizando Cypress para verifica
 
 - [ ] Visita la página: Crea una prueba que visite la URL http://localhost:4200/ y verifique que sea accesible.
 - [ ] Footer presente: Asegúrate de que exista un elemento `<footer>` en la página.
-- [ ] Contenido del footer: Verifica que el footer contenga el texto "Archetype".
+- [ ] Contenido del footer: Verifica que el footer contenga el texto "rights".
 - [ ] Enlace externo: Confirma que haya un enlace (elemento `<a>`) con href apuntando a https://albertobasalo.dev.
 - [ ] Navegación: Verifica que exista un elemento `<nav>` que contenga al menos un enlace `<a>`.
 
@@ -99,66 +99,6 @@ Escribe un conjunto de pruebas end-to-end (E2E) utilizando Cypress para verifica
 - Ejecuta las pruebas en un entorno donde la aplicación esté corriendo en localhost:4200.
 - Asegúrate de que las pruebas sean independientes y reutilicen la visita a la página cuando sea necesario.
 - Corrige cualquier error tipográfico o lógico en las descripciones (por ejemplo, "should contains" debería ser "should contain", y "un link" debería ser "a link").
-
-### 2. Refactorización (demo)
-
-- Usar `beforeEach` para evitar repetir `cy.visit`.
-- Usar configuración global en `cypress.config.ts` para establecer la baseUrl.
-- Usar Logs para la trazabilidad interactiva.
-- Scripts en `package.json` para simplificar comandos.
-
-
-### 3. Rutas, navegación y esperas (demo)
-
-```ts
-/**
- * The Application navigation links
- *   should have a link to the repository page
- *   should have a header link with 'register' text
- *   should have a header link to user/register url
- *   should navigate to the register page
- *   should not have broken links
- */
-```
-
-### 4. Formularios
-
-```ts
-/**
- * The register form
- *     should have a form with 5 clean inputs and a submit button disabled
- *   when the users fills the form correctly
- *     should allow to submit the form
- *     should mark all inputs as valid
- *   when the user fills the form incorrectly
- *     should disabled the submit button when start
- *     should mark the name as invalid if it is empty
- *     should mark the name as invalid after clear it
- *     should not show an error message to the user before interaction
- *     should show an error message to the user after typing invalid data
- *     should mark the name as valid if it is not empty
- *     should mark the email as invalid if it is not an email
- *  when the user resets the form
- *     should clear the form when the reset button is clicked
- */
-```
-
-### 5. Escenarios de error
-
-```ts
-/**
- * Given The Application home page
- *  When no API server is available
- *   Then should display an error message,
- *    And not a busy message
- *    And not the data
- */
-```
-
-### 6. Ejecución en CI/CD (demo)
-
-- `cypress run`
-- `cypress run --browser chrome --spec cypress/1-start/*.spec.ts`
 
 ## Conclusión
 
