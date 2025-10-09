@@ -1,4 +1,4 @@
-# 12 Buenas prácticas con Cypress
+# 2 Buenas prácticas con Cypress
 
 > Softtek 9 de Octubre 2025
 
@@ -78,14 +78,14 @@ describe('Registro de usuario', () => {
 
 ## Concreción práctica
 
-### 2. Refactorización (demo)
+### 1. Refactorización (demo)
 
 - Usar `beforeEach` para evitar repetir `cy.visit`.
 - Usar configuración global en `cypress.config.ts` para establecer la baseUrl.
-- Usar Logs para la trazabilidad interactiva.
+- Usar Pasos, Alias, Logs y Consola para la trazabilidad interactiva.
 - Scripts en `package.json` para simplificar comandos.
 
-### 3. Rutas, navegación y esperas (demo)
+### 2. Rutas, navegación y esperas (demo)
 
 ```ts
 /**
@@ -97,42 +97,41 @@ describe('Registro de usuario', () => {
  *   should not have broken links
  */
 ```
+- Hooks: `before`, `beforeEach`, `after`, `afterEach`.
+- Activa y desactiva pruebas mediante `.only` y `.skip`.
+- Esperas implícitas y explícitas.
+- Should de uno, dos y tres argumentos.
+- Expresiones de evaluación con funciones flecha.
 
-### 4. Formularios
+### 3. Formularios
 
 ```ts
 /**
  * The register form
- *     should have a form with 5 clean inputs and a submit button disabled
+ *   should have a form with 5 clean inputs and a submit button disabled
  *   when the users fills the form correctly
  *     should allow to submit the form
- *     should mark all inputs as valid
  *   when the user fills the form incorrectly
  *     should disabled the submit button when start
- *     should mark the name as invalid if it is empty
- *     should mark the name as invalid after clear it
- *     should not show an error message to the user before interaction
- *     should show an error message to the user after typing invalid data
- *     should mark the name as valid if it is not empty
+ *     should not mark the email as invalid if it is empty, but list in error section
  *     should mark the email as invalid if it is not an email
- *  when the user resets the form
+ *   when the user resets the form
  *     should clear the form when the reset button is clicked
  */
 ```
+- Comandos `type`, `clear`, `check`, `uncheck`, `select`, `submit`, `reset`.
+- Afirmaciones sobre formularios y sus elementos.
+- Patrón : Arrange - Act - Assert.
+  
+- To Do: Variables de entorno y fixtures
 
-### 5. Escenarios de error
 
-```ts
-/**
- * Given The Application home page
- *  When no API server is available
- *   Then should display an error message,
- *    And not a busy message
- *    And not the data
- */
-```
+## Conclusión
 
-### 6. Ejecución en CI/CD (demo)
+### ¿Qué hemos aprendido?
 
-- `cypress run`
-- `cypress run --browser chrome --spec cypress/1-start/*.spec.ts`
+Organizar y depurar pruebas.
+
+### ¿Qué sigue?
+
+Trabajo con servidores, APIs y datos.
