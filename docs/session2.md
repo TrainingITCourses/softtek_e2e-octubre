@@ -63,7 +63,7 @@ describe('Registro de usuario', () => {
 {
   "scripts": {
     "start": "cypress open --e2e --browser chrome",
-    "test": "npm run cypress:run",
+    "test": "cypress run",
     "test:feature1": "cypress run --spec 'cypress/e2e/feature1/**' ",
   }
 }

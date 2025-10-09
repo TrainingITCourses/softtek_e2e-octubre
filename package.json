@@ -7,8 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "cypress open",
-    "test": "cypress run"
+    "start": "cypress open --e2e --browser chrome",
+    "test": "cypress run",
+    "test:sesion1": "cypress run --spec 'cypress/e2e/sesion1/**'"
   },
   "repository": {
     "type": "git",
