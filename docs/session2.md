@@ -78,12 +78,17 @@ describe('Registro de usuario', () => {
 
 ## Concreción práctica
 
-### 1. Refactorización (demo)
+### 0. Refactorización (demo)
 
 - Usar `beforeEach` para evitar repetir `cy.visit`.
 - Usar configuración global en `cypress.config.ts` para establecer la baseUrl.
 - Usar Pasos, Alias, Logs y Consola para la trazabilidad interactiva.
 - Scripts en `package.json` para simplificar comandos.
+
+### 1. Selectores (demo)
+
+- Tiene el año actual en el pie de página
+- Tiene un link a la página de registro con el texto 'Register'
 
 ### 2. Rutas, navegación y esperas (demo)
 

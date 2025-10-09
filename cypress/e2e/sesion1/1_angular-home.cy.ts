@@ -29,4 +29,13 @@ describe("El laboratorio de Angular", () => {
     cy.get("nav").as("cabecera");
     cy.get("@cabecera").find("a").its("length").should("be.gte", 1);
   });
+  it("Tiene el año actual en el pie de página", () => {
+    const year = new Date().getFullYear();
+    cy.log("Verificando el año actual en el pie de página");
+    cy.get("footer").contains(year);
+  });
+  it("Tiene un link a la página de registro con el texto 'Register'", () => {
+    cy.log("Verificando el enlace a la página de registro");
+    cy.get('a[href="/user/register"]').contains("Register");
+  });
 });
