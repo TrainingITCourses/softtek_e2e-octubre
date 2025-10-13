@@ -6,12 +6,15 @@ Repository: [TrainingITCourses / softtek_e2e octubre](https://github.com/Trainin
 ## Docs
 
 - [Sesión 1 - Introducción a Cypress](./docs/session1.md)
+- [Sesión 2 - Buenas prácticas y organización](./docs/session2.md)
+- [Sesión 3 - Formularios e interacciones](./docs/session3.md)
+
 
 ## Subject Under Test:
 
-- Frontend Web application [angular spa / v20](https://github.com/AlbertoBasaloLabs/Angular)
+- Frontend Web application [Angular SPA / v20](https://github.com/AlbertoBasaloLabs/Angular)
 
-- API Rest Server: [Express API ]()
+- API Rest Server: [Express API / v5](https://github.com/AlbertoBasaloLabs/Express)
 
 ---
 
