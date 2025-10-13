@@ -116,4 +116,4 @@ Organizar y depurar pruebas.
 
 ### ¿Qué sigue?
 
-Trabajo con servidores, APIs y datos.
+Interacciones con formularios y gestión de datos.
