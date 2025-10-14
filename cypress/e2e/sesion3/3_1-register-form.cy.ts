@@ -70,6 +70,7 @@ describe("The register form", () => {
       it("should show failed message", () => {
         // Assert
         // ⚠️ Solo funciona cuando no hay un servicio
+        // To Do: Comprobar que se envía correctamente la información
         registerPage.getFailedMessage().should("exist");
       });
     });
