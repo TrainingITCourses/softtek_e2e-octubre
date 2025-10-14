@@ -1,0 +1,45 @@
+{
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "material-icon-theme.activeIconPack": "angular",
+  "material-icon-theme.folders.associations": {
+    "file": "meta",
+    "http": "api",
+    "domain": "cobol",
+    "system": "stack"
+  },
+  "material-icon-theme.files.associations": {
+    "*.application.ts": "adonis",
+    "*.adapter.ts": "adonis",
+    "*.builder.ts": "unocss",
+    "*.command.ts": "console",
+    "*.config.ts": "tune",
+    "*.component.ts": "angular-component",
+    "*.decorator.ts": "renovate",
+    "*.dto.ts": "raml",
+    "*.facade.ts": "mjml",
+    "*.factory.ts": "fortran",
+    "*.form.ts": "angular-component",
+    "*.functions.ts": "url",
+    "*.gateway.ts": "ifanr-cloud",
+    "*.interface.ts": "raml",
+    "*.mapper.ts": "purescript",
+    "*.module.ts": "less",
+    "*.operations.ts": "url",
+    "*.page.ts": "angular-guard",
+    "*.singleton.ts": "stitches",
+    "*.repository.ts": "database",
+    "*.service.ts": "angular-service",
+    "*.store.ts": "angular-service",
+    "*.type.ts": "raml",
+    "*.utils.ts": "tilt",
+    "*.validator.ts": "velite"
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.foreground": "#007700"
+  }
+}
