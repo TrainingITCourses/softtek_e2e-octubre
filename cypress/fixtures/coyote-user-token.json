@@ -1,0 +1,8 @@
+{
+  "user": {
+    "id": "131.2",
+    "name": "Coyote",
+    "email": "coyote@acme.com"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzMS4yIiwiaWF0IjoxNzYwNjIzMzI1LCJleHAiOjE3NjA2MjY5MjV9.TY7IJtXJjHd2H9x5qAuri7zcdRi_EeJYPyroGG9DCso"
+}

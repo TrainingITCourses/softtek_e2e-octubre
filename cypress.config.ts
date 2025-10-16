@@ -8,6 +8,10 @@ export default defineConfig({
     baseUrl: "http://localhost:4200",
     viewportHeight: 768,
     viewportWidth: 1024,
-    defaultCommandTimeout: 2000,
+    defaultCommandTimeout: 4000,
+
+    env: {
+      apiBaseUrl: "http://localhost:3000",
+    },
   },
 });

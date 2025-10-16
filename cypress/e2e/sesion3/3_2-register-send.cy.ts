@@ -40,6 +40,7 @@ describe("User registration API integration", () => {
     });
     it("should successfully register user and receive confirmation", () => {
       // Assert - Verify successful registration response
+      //cy.wait("@postUsersRegister").should("have.been.called");
       cy.wait("@postUsersRegister")
         .its("response.statusCode")
         .should("eq", 201);
