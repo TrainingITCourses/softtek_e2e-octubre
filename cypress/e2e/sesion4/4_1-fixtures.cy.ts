@@ -15,7 +15,7 @@ describe("User login process", () => {
     // Arrange
     cy.clearLocalStorage();
   });
-  context.only("when server responds with valid credentials", () => {
+  context("when server responds with valid credentials", () => {
     beforeEach(() => {
       // Arrange
       const API_BASE_URL = Cypress.env("apiBaseUrl");
@@ -36,6 +36,18 @@ describe("User login process", () => {
     });
   });
   context("when server responds with Bad Request", () => {
-    it("should display failure message to user", () => {});
+    beforeEach(() => {
+      // Arrange
+      const API_BASE_URL = Cypress.env("apiBaseUrl");
+      cy.intercept("POST", `${API_BASE_URL}/users/login`, {
+        statusCode: 400,
+      }).as("postUserLogin");
+      // Act
+      cy.stk_loginAs("coyote");
+    });
+    it("should display failure message to user", () => {
+      cy.wait("@postUserLogin");
+      cy.get("#failed").should("be.visible");
+    });
   });
 });
