@@ -99,7 +99,7 @@ describe("Register form validation and functionality", () => {
       // Assert - Verify form validation prevents submission
       registerPage.getCheckboxTerms().should("not.be.checked");
       // TODO: Add more comprehensive validation checks for all invalid fields
-      // registerPage.getSubmitButton().should("be.disabled");
+      registerPage.getSubmitButton().should("be.disabled");
     });
   });
   context("when user resets the form", () => {

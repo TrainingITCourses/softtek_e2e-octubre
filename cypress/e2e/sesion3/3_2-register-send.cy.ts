@@ -5,25 +5,17 @@ import { RegisterPage } from "../../support/pages/register.po";
  *  when user submits valid registration data
  *    should successfully register user with server
  *    should receive successful response (201 status)
- *    should not display error messages
  *  when user attempts to register with existing credentials
  *    should receive error response from server
  *    should display failure message to user
  */
 describe("User registration API integration", () => {
-  const inputValidUser = {
+  const inputUser = {
     name: "Coyote",
     email: "coyote@acme.com",
     password: "1234abcD!",
     confirmPassword: "1234abcD!",
     terms: true,
-  };
-  const inputInvalidUser = {
-    name: "",
-    email: "coyote.com",
-    password: "1234",
-    confirmPassword: "abcD!",
-    terms: false,
   };
   const registerPage = new RegisterPage();
   before(() => {
@@ -39,12 +31,10 @@ describe("User registration API integration", () => {
   context("when user submits valid registration data", () => {
     beforeEach(() => {
       // Act - Fill and submit form with valid user data
-      registerPage.getInputName().type(inputValidUser.name);
-      registerPage.getInputEmail().type(inputValidUser.email);
-      registerPage.getInputPassword().type(inputValidUser.password);
-      registerPage
-        .getInputConfirmPassword()
-        .type(inputValidUser.confirmPassword);
+      registerPage.getInputName().type(inputUser.name);
+      registerPage.getInputEmail().type(inputUser.email);
+      registerPage.getInputPassword().type(inputUser.password);
+      registerPage.getInputConfirmPassword().type(inputUser.confirmPassword);
       registerPage.getCheckboxTerms().check();
       registerPage.getSubmitButton().click();
     });
@@ -57,14 +47,15 @@ describe("User registration API integration", () => {
     });
   });
   context("when user attempts to register with existing credentials", () => {
+    // ⚠️ Only works in certain scenarios
+    // This text depends on previous test to have created the user
     it("should receive error response and display failure message", () => {
+      // ToDo: duplicate user creation to ensure test reliability
       // Arrange & Act - Submit registration with already existing user data
-      registerPage.getInputName().type(inputValidUser.name);
-      registerPage.getInputEmail().type(inputValidUser.email);
-      registerPage.getInputPassword().type(inputValidUser.password);
-      registerPage
-        .getInputConfirmPassword()
-        .type(inputValidUser.confirmPassword);
+      registerPage.getInputName().type(inputUser.name);
+      registerPage.getInputEmail().type(inputUser.email);
+      registerPage.getInputPassword().type(inputUser.password);
+      registerPage.getInputConfirmPassword().type(inputUser.confirmPassword);
       registerPage.getCheckboxTerms().check();
       registerPage.getSubmitButton().click();
 
