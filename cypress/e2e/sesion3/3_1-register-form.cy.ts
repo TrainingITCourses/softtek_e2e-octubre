@@ -80,8 +80,6 @@ describe("Register form validation and functionality", () => {
           name: inputValidUser.name,
           email: inputValidUser.email,
           password: inputValidUser.password,
-          confirmPassword: inputValidUser.confirmPassword,
-          terms: inputValidUser.terms,
         });
       });
     });
