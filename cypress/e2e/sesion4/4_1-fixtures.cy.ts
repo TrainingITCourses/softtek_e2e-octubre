@@ -11,18 +11,23 @@
  *    should display failure message to user
  */
 describe("User login process", () => {
+  beforeEach(() => {
+    // Arrange
+    cy.clearLocalStorage();
+  });
   context.only("when server responds with valid credentials", () => {
-    it("should redirect to user page and save user data in local storage", () => {
+    beforeEach(() => {
+      // Arrange
       const API_BASE_URL = Cypress.env("apiBaseUrl");
       cy.intercept("POST", `${API_BASE_URL}/users/login`, {
+        statusCode: 201,
         fixture: "coyote-user-token",
       }).as("postUserLogin");
-      cy.visit("user/login");
-      cy.fixture("coyote-credentials").then((x) => {
-        cy.get("#email").type(x.email);
-        cy.get("#password").type(x.password);
-      });
-      cy.get("button").contains("Login").click();
+      // Act
+      cy.stk_loginAs("coyote");
+    });
+    it("should redirect to user page and save user data in local storage", () => {
+      // Assert
       cy.url().should("include", "/user/");
       cy.window()
         .its("localStorage")
