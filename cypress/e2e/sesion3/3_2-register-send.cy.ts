@@ -1,6 +1,16 @@
 import { RegisterPage } from "../../support/pages/register.po";
 
-describe("The register send process", () => {
+/**
+ * User registration API integration tests
+ *  when user submits valid registration data
+ *    should successfully register user with server
+ *    should receive successful response (201 status)
+ *    should not display error messages
+ *  when user attempts to register with existing credentials
+ *    should receive error response from server
+ *    should display failure message to user
+ */
+describe("User registration API integration", () => {
   const inputValidUser = {
     name: "Coyote",
     email: "coyote@acme.com",
@@ -17,17 +27,18 @@ describe("The register send process", () => {
   };
   const registerPage = new RegisterPage();
   before(() => {
+    // Setup - Clear test data before running registration tests
     cy.request("POST", "http://localhost:3000/users/test-clear");
-    cy.intercept("POST", "/users/register").as("postUser");
   });
   beforeEach(() => {
-    // Arrange
+    // Arrange - Setup page and network intercepts
     registerPage.visit();
     cy.get("form").as("registerForm");
+    cy.intercept("POST", "**/users/register").as("postUsersRegister");
   });
-  context("when the users sends the form correctly", () => {
+  context("when user submits valid registration data", () => {
     beforeEach(() => {
-      // Act
+      // Act - Fill and submit form with valid user data
       registerPage.getInputName().type(inputValidUser.name);
       registerPage.getInputEmail().type(inputValidUser.email);
       registerPage.getInputPassword().type(inputValidUser.password);
@@ -37,10 +48,31 @@ describe("The register send process", () => {
       registerPage.getCheckboxTerms().check();
       registerPage.getSubmitButton().click();
     });
-    it("should send the user and not show failed message", () => {
-      // Assert
-      cy.get("@postUser").its("response.statusCode").should("eq", 201);
+    it("should successfully register user and receive confirmation", () => {
+      // Assert - Verify successful registration response
+      cy.wait("@postUsersRegister")
+        .its("response.statusCode")
+        .should("eq", 201);
       registerPage.getFailedMessage().should("not.exist");
+    });
+  });
+  context("when user attempts to register with existing credentials", () => {
+    it("should receive error response and display failure message", () => {
+      // Arrange & Act - Submit registration with already existing user data
+      registerPage.getInputName().type(inputValidUser.name);
+      registerPage.getInputEmail().type(inputValidUser.email);
+      registerPage.getInputPassword().type(inputValidUser.password);
+      registerPage
+        .getInputConfirmPassword()
+        .type(inputValidUser.confirmPassword);
+      registerPage.getCheckboxTerms().check();
+      registerPage.getSubmitButton().click();
+
+      // Assert - Verify error response and failure message display
+      cy.wait("@postUsersRegister")
+        .its("response.statusCode")
+        .should("be.above", 400);
+      cy.get("section#failed").should("be.visible");
     });
   });
 });
